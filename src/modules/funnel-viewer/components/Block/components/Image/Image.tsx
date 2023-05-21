@@ -16,8 +16,11 @@ const Image: FunctionComponent<Props> = ({ src }) => {
   return (
     <>
       {isLoading && (
-        <div className="w-6 h-6">
-          <Spinner />
+        // Using 16:9 aspect ratio in order to reduce CLS (assuming 16:9 is the most popular one)
+        <div className="aspect-image flex items-center justify-center w-full">
+          <div className="w-6 h-6">
+            <Spinner />
+          </div>
         </div>
       )}
 
