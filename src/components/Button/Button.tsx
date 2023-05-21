@@ -6,16 +6,17 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button: FunctionComponent<Props> = ({ className, children, ...rest }) => {
-  const buttonClasses = classNames(
-    className,
-    'py-2 px-4',
-    'border border-transparent rounded-md',
-    'shadow-sm text-sm font-medium',
-    'text-white bg-indigo-600 hover:bg-indigo-700',
-  );
-
   return (
-    <button className={buttonClasses} {...rest}>
+    <button
+      className={classNames(
+        className,
+        'py-1 px-2',
+        'rounded',
+        'text-white disabled:text-opacity-80 font-bold',
+        'bg-blue-300 hover:bg-blue-400 disabled:bg-blue-200',
+      )}
+      {...rest}
+    >
       {children}
     </button>
   );
