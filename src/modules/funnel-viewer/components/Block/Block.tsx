@@ -1,30 +1,37 @@
 import { FunctionComponent } from 'react';
 
-import { isTextBlock, type Block as BlockType, isButtonBlock, isListBlock } from 'types';
+import {
+  isTextBlock,
+  type Block as BlockType,
+  isButtonBlock,
+  isListBlock,
+  isImageBlock,
+} from 'types';
 
-import { Button, List, Text, Unknown } from './components';
+import { Button, Image, List, Text, Unknown } from './components';
 
 interface Props {
-  block: BlockType;
-  className?: string;
+  block: BlockType | unknown;
 }
 
-const Block: FunctionComponent<Props> = ({ block, className }) => {
-  const commonProps = { className };
-
+const Block: FunctionComponent<Props> = ({ block }) => {
   if (isTextBlock(block)) {
-    return <Text {...commonProps} {...block} />;
+    return <Text {...block} />;
   }
 
   if (isButtonBlock(block)) {
-    return <Button {...commonProps} {...block} />;
+    return <Button {...block} />;
+  }
+
+  if (isImageBlock(block)) {
+    return <Image {...block} />;
   }
 
   if (isListBlock(block)) {
-    return <List {...commonProps} {...block} />;
+    return <List {...block} />;
   }
 
-  return <Unknown {...commonProps} {...block} />;
+  return <Unknown {...(block || {})} />;
 };
 
 export default Block;
