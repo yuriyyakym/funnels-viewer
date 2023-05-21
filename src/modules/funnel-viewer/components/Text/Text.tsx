@@ -7,7 +7,7 @@ interface Props extends Omit<TextBlock, 'id' | 'type'> {
   className?: string;
 }
 
-const TextBlock: FunctionComponent<Props> = ({ align, className, color, text }) => (
+const Text: FunctionComponent<Props> = ({ align, className, color, text }) => (
   <div
     className={classNames(className, 'px-2', {
       'text-center': align === 'center',
@@ -20,4 +20,4 @@ const TextBlock: FunctionComponent<Props> = ({ align, className, color, text }) 
   </div>
 );
 
-export default TextBlock;
+export default Text;
