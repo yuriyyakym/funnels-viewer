@@ -3,13 +3,11 @@ import { FunctionComponent } from 'react';
 
 import { TextBlock } from 'types';
 
-interface Props extends Omit<TextBlock, 'id' | 'type'> {
-  className?: string;
-}
+type Props = Pick<TextBlock, 'align' | 'color' | 'text'>;
 
-const Text: FunctionComponent<Props> = ({ align, className, color, text }) => (
+const Text: FunctionComponent<Props> = ({ align, color, text }) => (
   <div
-    className={classNames(className, 'px-2', {
+    className={classNames('px-2', {
       'text-center': align === 'center',
       'text-left': align === 'left',
       'text-right': align === 'right',
