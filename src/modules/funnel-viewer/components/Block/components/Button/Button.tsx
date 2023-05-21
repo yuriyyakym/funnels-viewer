@@ -3,14 +3,11 @@ import { FunctionComponent } from 'react';
 
 import { ButtonBlock } from 'types';
 
-interface Props extends Pick<ButtonBlock, 'bgColor' | 'color' | 'text'> {
-  className?: string;
-}
+type Props = Pick<ButtonBlock, 'bgColor' | 'color' | 'text'>;
 
-const Button: FunctionComponent<Props> = ({ bgColor, className, color, text }) => (
+const Button: FunctionComponent<Props> = ({ bgColor, color, text }) => (
   <button
     className={classNames(
-      className,
       'py-2 px-4',
       'text-white font-bold',
       'rounded-full',
