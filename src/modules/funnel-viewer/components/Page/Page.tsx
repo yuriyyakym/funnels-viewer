@@ -11,18 +11,10 @@ interface Props {
 }
 
 const Page: FunctionComponent<Props> = ({ blocks, className }) => (
-  <div className={classNames(className, 'flex flex-col items-center', 'p-3 md:p-5')}>
-    {blocks.map((block, index) => {
-      const isFirstBlock = index === 0;
-
-      return (
-        <Block
-          block={block}
-          className={classNames({ 'mt-3 md:mt-5': !isFirstBlock })}
-          key={block.id}
-        />
-      );
-    })}
+  <div className={classNames(className, 'flex flex-col items-center gap-3 md:gap-5', 'p-3 md:p-5')}>
+    {blocks.map((block) => (
+      <Block block={block} key={block.id} />
+    ))}
   </div>
 );
 
