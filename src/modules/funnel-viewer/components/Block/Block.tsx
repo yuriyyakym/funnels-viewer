@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 
 import { isTextBlock, type Block as BlockType, isButtonBlock, isListBlock } from 'types';
 
-import { Button, Text, Unknown } from './components';
+import { Button, List, Text, Unknown } from './components';
 
 interface Props {
   block: BlockType;
@@ -18,6 +18,10 @@ const Block: FunctionComponent<Props> = ({ block, className }) => {
 
   if (isButtonBlock(block)) {
     return <Button {...commonProps} {...block} />;
+  }
+
+  if (isListBlock(block)) {
+    return <List {...commonProps} {...block} />;
   }
 
   return <Unknown {...commonProps} {...block} />;
