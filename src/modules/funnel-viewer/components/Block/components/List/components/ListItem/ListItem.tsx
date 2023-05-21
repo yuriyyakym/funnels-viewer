@@ -3,12 +3,10 @@ import { FunctionComponent } from 'react';
 
 import { type ListItem as ListItemType } from 'types';
 
-interface Props extends ListItemType {
-  className?: string;
-}
+type Props = ListItemType;
 
-const ListItem: FunctionComponent<Props> = ({ className, description, src, title }) => (
-  <div className={classNames(className, 'flex items-center')}>
+const ListItem: FunctionComponent<Props> = ({ description, src, title }) => (
+  <div className="flex items-center">
     <img className={classNames('w-16 h-16', 'mr-4', 'rounded-full')} src={src} alt={title} />
 
     <div>
