@@ -17,7 +17,7 @@ const Page: FunctionComponent<Props> = ({ blocks, className, style }) => (
       className,
       'container',
       'flex flex-col items-center gap-3 md:gap-5',
-      'p-3 md:p-5 mx-auto',
+      'w-full h-full p-3 md:p-5 mx-auto',
     )}
     style={style}
   >
