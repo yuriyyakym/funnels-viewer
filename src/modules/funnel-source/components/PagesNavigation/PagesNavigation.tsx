@@ -6,7 +6,7 @@ import { Page } from 'types';
 
 interface Props {
   className?: string;
-  activePageId: Page['id'];
+  activePageId: Page['id'] | null;
   pages: Page[];
   onPageSelect: (page: Page) => void;
 }
