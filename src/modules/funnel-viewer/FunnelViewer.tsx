@@ -1,35 +1,30 @@
-import { FunctionComponent, useState } from 'react';
+import { FunctionComponent } from 'react';
 
-import { type Funnel } from 'types';
+import { Message } from 'components';
+import { useViewportSize } from 'state';
+import { type Page as PageType, type Funnel } from 'types';
 
-import { Page, PagesNavigation } from './components';
+import { Page, Viewport } from './components';
 
 interface Props {
-  funnel: Funnel;
+  page: PageType | null;
+  funnel: Funnel | null;
 }
 
-const FunnelViewer: FunctionComponent<Props> = ({ funnel }) => {
-  const [activePageId, setActivePageId] = useState(funnel.pages[0]?.id);
-  const { bgColor, name, pages } = funnel;
+const FunnelViewer: FunctionComponent<Props> = ({ funnel, page }) => {
+  const viewportSize = useViewportSize();
 
-  const page = pages.find((page) => page.id === activePageId);
-
-  if (!page) {
-    return null;
+  if (funnel === null || page === null) {
+    return <Message variant="info">Preview unavailable</Message>;
   }
 
+  const { blocks } = page;
+  const { bgColor: backgroundColor } = funnel;
+
   return (
-    <div style={{ backgroundColor: bgColor }}>
-      <h1>{name}</h1>
-
-      <PagesNavigation
-        activePageId={activePageId}
-        pages={pages}
-        onPageSelect={(page) => setActivePageId(page.id)}
-      />
-
-      <Page blocks={page.blocks} />
-    </div>
+    <Viewport size={viewportSize}>
+      <Page blocks={blocks} style={{ backgroundColor }} />
+    </Viewport>
   );
 };
 
