@@ -17,7 +17,7 @@ const PagesNavigation: FunctionComponent<Props> = ({
   pages,
   onPageSelect,
 }) => (
-  <nav className={classNames(className, 'flex gap-1')}>
+  <nav className={classNames(className, 'flex gap-2')}>
     {pages.map((page, index) => (
       <Button disabled={page.id === activePageId} key={page.id} onClick={() => onPageSelect(page)}>
         {index + 1}
