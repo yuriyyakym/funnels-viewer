@@ -2,7 +2,7 @@ export { type default as Alignment } from './Alignment';
 export { type default as Block } from './Block';
 export { type default as ButtonBlock, isButtonBlock } from './ButtonBlock';
 export { type default as Color } from './Color';
-export { type default as Funnel } from './Funnel';
+export { type default as Funnel, isFunnel } from './Funnel';
 export { type default as ImageBlock, isImageBlock } from './ImageBlock';
 export { type default as ListBlock, isListBlock } from './ListBlock';
 export { type default as ListItem } from './ListItem';
