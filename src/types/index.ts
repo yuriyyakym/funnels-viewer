@@ -7,4 +7,5 @@ export { type default as ImageBlock, isImageBlock } from './ImageBlock';
 export { type default as ListBlock, isListBlock } from './ListBlock';
 export { type default as ListItem } from './ListItem';
 export { type default as Page } from './Page';
+export { type default as Size } from './Size';
 export { type default as TextBlock, isTextBlock } from './TextBlock';
