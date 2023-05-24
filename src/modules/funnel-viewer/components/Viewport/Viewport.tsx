@@ -15,11 +15,12 @@ interface Props {
 /**
  * `react-resizable` provides size with possible floats.
  * We need to preserve these floats in order to have precize resizing and avoid cursor & handle position desync.
- * It also allows to deffer setting global state, since it's update is not of high priority.
+ * It also allows to defer setting global state, since it's update is not of high priority.
  */
 
 const Viewport: FunctionComponent<Props> = ({ children, size, onResize }) => {
   const [localSize, setLocalSize] = useState(size);
+  const [isResizing, setIsResizing] = useState(false);
 
   const handleResize = (_event: SyntheticEvent, data: ResizeCallbackData) => {
     setLocalSize(data.size);
@@ -32,8 +33,13 @@ const Viewport: FunctionComponent<Props> = ({ children, size, onResize }) => {
     });
   };
 
-  const handleResizeStop = () => {
+  const handleResizeStart = () => {
     setLocalSize(size);
+    setIsResizing(true);
+  };
+
+  const handleResizeStop = () => {
+    setIsResizing(false);
   };
 
   return (
@@ -41,12 +47,13 @@ const Viewport: FunctionComponent<Props> = ({ children, size, onResize }) => {
       className={classNames('flex items-center justify-center', 'w-full h-full', 'overflow-auto')}
     >
       <ResizableBox
-        className="border-t border-l border-gray-100 box-content"
+        className="border-t border-l border-gray-100 box-content overflow-hidden"
         handle={getResizeHandle}
-        height={localSize.height}
+        height={isResizing ? localSize.height : size.height}
         resizeHandles={['e', 's', 'se']}
-        width={localSize.width}
+        width={isResizing ? localSize.width : size.width}
         onResize={handleResize}
+        onResizeStart={handleResizeStart}
         onResizeStop={handleResizeStop}
       >
         <div className="@container flex flex-col w-full h-full  pb-3 pr-3 overflow-auto no-scrollbar">
