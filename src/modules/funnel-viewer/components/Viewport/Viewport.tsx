@@ -49,7 +49,9 @@ const Viewport: FunctionComponent<Props> = ({ children, size, onResize }) => {
         onResize={handleResize}
         onResizeStop={handleResizeStop}
       >
-        <div className="flex flex-col w-full h-full overflow-auto pb-3 pr-3">{children}</div>
+        <div className="@container flex flex-col w-full h-full overflow-auto pb-3 pr-3">
+          {children}
+        </div>
       </ResizableBox>
     </div>
   );
