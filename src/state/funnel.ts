@@ -1,4 +1,5 @@
-import { atom, useAtomValue, useSetAtom } from 'jotai';
+import { atom, useAtom, useAtomValue, useSetAtom } from 'jotai';
+import { useCallback } from 'react';
 
 import { Funnel, Page } from 'types';
 
@@ -8,11 +9,9 @@ const funnelAtom = atom<Funnel | null>(null);
 
 export const useFunnel = () => useAtomValue(funnelAtom);
 
-export const useSetFunnel = () => useSetAtom(funnelAtom);
+export const useFunnelState = () => useAtom(funnelAtom);
 
-export const useActivePageId = () => useAtomValue(activePageIdAtom);
-
-export const useSetActivePageId = () => useSetAtom(activePageIdAtom);
+export const useActivePageIdState = () => useAtom(activePageIdAtom);
 
 export const usePage = (id: Page['id']): Page | null => {
   const funnel = useFunnel();
@@ -26,15 +25,18 @@ export const usePage = (id: Page['id']): Page | null => {
   return page ?? null;
 };
 
-export const useIsValidFunnel = () => useFunnel() !== null;
-
 export const useActivePage = () => {
   const funnel = useFunnel();
-  const activePageId = useActivePageId();
+  const activePageId = useAtomValue(activePageIdAtom);
 
   if (!funnel || !activePageId) {
     return null;
   }
 
   return funnel.pages.find((page) => page.id === activePageId) ?? null;
+};
+
+export const useRemoveFunnel = () => {
+  const setFunnel = useSetAtom(funnelAtom);
+  return useCallback(() => setFunnel(null), [setFunnel]);
 };
