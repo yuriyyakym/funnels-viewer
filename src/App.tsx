@@ -1,31 +1,29 @@
-import classNames from 'classnames';
 import { FunctionComponent } from 'react';
 
+import FunnelInput from 'modules/funnel-input';
 import FunnelViewer from 'modules/funnel-viewer';
-import MainPanel from 'modules/main-panel';
 import Header from 'modules/header';
-import { useActivePage, useFunnel } from 'state';
+import { useActivePage, useActivePageIdState, useFunnelState } from 'state';
+import { Funnel } from 'types';
 
 const App: FunctionComponent = () => {
-  const funnel = useFunnel();
+  const [funnel, setFunnel] = useFunnelState();
+  const [, setActivePageId] = useActivePageIdState();
   const page = useActivePage();
 
-  return (
-    <div className="flex w-full h-full overflow-hidden">
-      <aside
-        className={classNames(
-          'w-aside min-w-aside h-full p-2',
-          'border-r border-gray-200',
-          'bg-gray-50',
-          'overflow-auto',
-        )}
-      >
-        <Header />
-        <MainPanel className="mt-5" />
-      </aside>
+  const handleFunnelChange = (funnel: Funnel) => {
+    const pageId = funnel.pages[0]?.id ?? null;
+    setFunnel(funnel);
+    setActivePageId(pageId);
+  };
 
-      <main className="flex-1 p-2 overflow-hidden">
-        <FunnelViewer backgroundColor={funnel?.bgColor} page={page} />
+  return (
+    <div className="flex flex-col w-full h-full overflow-hidden">
+      <Header />
+
+      <main className="flex-1 p-3 overflow-hidden">
+        {funnel && <FunnelViewer backgroundColor={funnel?.bgColor} page={page} />}
+        {!funnel && <FunnelInput onChange={handleFunnelChange} />}
       </main>
     </div>
   );
