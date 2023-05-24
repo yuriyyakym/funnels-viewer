@@ -13,7 +13,7 @@ const Button: FunctionComponent<Props> = ({ className, children, ...rest }) => {
         'py-1 px-2',
         'rounded',
         'text-white disabled:text-opacity-80 font-bold',
-        'bg-blue-300 hover:bg-blue-400 disabled:bg-blue-200',
+        'bg-blue-400 hover:bg-blue-500',
       )}
       {...rest}
     >
