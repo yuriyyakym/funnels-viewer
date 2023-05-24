@@ -35,7 +35,9 @@ const Header: FunctionComponent = () => {
             </div>
           </Section>
 
-          <Button onClick={removeFunnel}>Upload Funnel</Button>
+          <Button variant="yellow" onClick={removeFunnel}>
+            Remove Funnel
+          </Button>
         </div>
       )}
     </header>
