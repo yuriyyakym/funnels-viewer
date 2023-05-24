@@ -76,7 +76,7 @@ const FunnelInput: FunctionComponent<Props> = ({ onChange }) => {
 
   return (
     <div className={classNames('flex items-center justify-center', 'w-full h-full')}>
-      <div
+      <button
         className={classNames(
           'flex flex-col items-center justify-center py-16 px-24 w-fit border-2 border-dashed border-gray-400 rounded transition-colors',
           'cursor-pointer hover:bg-gray-100',
@@ -85,6 +85,7 @@ const FunnelInput: FunctionComponent<Props> = ({ onChange }) => {
             'bg-white': !isDragOver,
           },
         )}
+        tabIndex={0}
         onDragLeave={handleDragLeave}
         onDragOver={handleDragOver}
         onDrop={handleDrop}
@@ -110,7 +111,7 @@ const FunnelInput: FunctionComponent<Props> = ({ onChange }) => {
             <input className="hidden" ref={inputRef} type="file" onChange={handleFileChange} />
           </div>
         </form>
-      </div>
+      </button>
     </div>
   );
 };
