@@ -1,29 +1,27 @@
 import { FunctionComponent } from 'react';
 
 import { Message } from 'components';
-import { useViewportSize } from 'state';
-import { type Page as PageType, type Funnel } from 'types';
+import { useSetViewportSize, useViewportSize } from 'state';
+import { type Page as PageType, Color } from 'types';
 
 import { Page, Viewport } from './components';
 
 interface Props {
+  backgroundColor?: Color;
   page: PageType | null;
-  funnel: Funnel | null;
 }
 
-const FunnelViewer: FunctionComponent<Props> = ({ funnel, page }) => {
+const FunnelViewer: FunctionComponent<Props> = ({ backgroundColor, page }) => {
   const viewportSize = useViewportSize();
+  const setViewportSize = useSetViewportSize();
 
-  if (funnel === null || page === null) {
+  if (page === null) {
     return <Message variant="info">Preview unavailable</Message>;
   }
 
-  const { blocks } = page;
-  const { bgColor: backgroundColor } = funnel;
-
   return (
-    <Viewport size={viewportSize}>
-      <Page blocks={blocks} style={{ backgroundColor }} />
+    <Viewport size={viewportSize} onResize={setViewportSize}>
+      <Page blocks={page.blocks} style={{ backgroundColor }} />
     </Viewport>
   );
 };
