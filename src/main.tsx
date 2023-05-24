@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import 'react-resizable/css/styles.css';
 
 import App from './App.tsx';
 import './index.css';
