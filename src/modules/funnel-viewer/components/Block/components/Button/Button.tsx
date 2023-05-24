@@ -8,7 +8,7 @@ type Props = Pick<ButtonBlock, 'bgColor' | 'color' | 'text'>;
 const Button: FunctionComponent<Props> = ({ bgColor, color, text }) => (
   <button
     className={classNames(
-      'py-2 px-4',
+      'py-3 px-7',
       'text-white font-bold',
       'rounded-full',
       'bg-blue-500 hover:bg-blue-700',
