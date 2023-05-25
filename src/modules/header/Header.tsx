@@ -6,6 +6,8 @@ import { Page } from 'types';
 
 import { PagesNavigation, Section, ViewportSelect, ViewportSizeInput } from './components';
 
+const LOGO_URL = import.meta.env.VITE_LOGO_URL;
+
 const Header: FunctionComponent = () => {
   const funnel = useFunnel();
   const removeFunnel = useRemoveFunnel();
@@ -15,7 +17,7 @@ const Header: FunctionComponent = () => {
   return (
     <header className="flex flex-wrap items-center p-3 bg-gray-100 shadow-md">
       <div className="flex items-center w-full sm:w-auto">
-        <img src="/logo.png" alt="Logo" className="w-10 h-10" />
+        <img src={LOGO_URL} alt="Logo" className="w-10 h-10" />
         {funnel && <h1 className="text-xl ml-3 font-bold cursor-default mr-10">{funnel.name}</h1>}
         {funnel && (
           <PagesNavigation
