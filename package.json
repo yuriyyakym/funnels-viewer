@@ -1,7 +1,10 @@
 {
   "name": "funnels-viewer",
-  "private": true,
-  "version": "0.0.0",
+  "author": {
+    "email": "yakym.yuriy@gmail.com",
+    "name": "Yuriy Yakym"
+  },
+  "version": "1.0.0",
   "license": "CC BY-NC-ND 4.0",
   "type": "module",
   "scripts": {
