@@ -4,7 +4,7 @@ The app designed to preview funnels on mobile viewports.
 
 Available at [https://funnels-viewer.vercel.app](https://funnels-viewer.vercel.app/).
 
-https://raw.githubusercontent.com/yuriyyakym/funnels-viewer/master/.repository/demo.mp4
+https://github.com/yuriyyakym/funnels-viewer/assets/18438911/4c80a8d6-058a-4b45-a769-f28d8e7b274d
 
 ### Tech description and notes
 Project is built using React + Jotai + Tailwind.\
