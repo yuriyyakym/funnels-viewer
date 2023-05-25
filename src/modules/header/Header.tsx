@@ -13,7 +13,7 @@ const Header: FunctionComponent = () => {
   const [activePageId, setActivePageId] = useActivePageIdState();
 
   return (
-    <header className="flex flex-wrap items-center p-3 bg-gray-100 shadow-sm">
+    <header className="flex flex-wrap items-center p-3 bg-gray-100 shadow-md">
       <div className="flex items-center w-full sm:w-auto">
         <img src="/logo.png" alt="Logo" className="w-10 h-10" />
         {funnel && <h1 className="text-xl ml-3 font-bold cursor-default mr-10">{funnel.name}</h1>}
@@ -35,8 +35,8 @@ const Header: FunctionComponent = () => {
             </div>
           </Section>
 
-          <Button variant="yellow" onClick={removeFunnel}>
-            Remove Funnel
+          <Button variant="slate" onClick={removeFunnel}>
+            Close
           </Button>
         </div>
       )}
