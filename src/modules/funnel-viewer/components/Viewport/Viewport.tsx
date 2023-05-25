@@ -47,7 +47,7 @@ const Viewport: FunctionComponent<Props> = ({ children, size, onResize }) => {
       className={classNames('flex items-center justify-center', 'w-full h-full', 'overflow-auto')}
     >
       <ResizableBox
-        className="border-t border-l border-gray-100 box-content overflow-hidden"
+        className="border-t border-l border-gray-100 box-content overflow-hidden shadow-md"
         handle={getResizeHandle}
         height={isResizing ? localSize.height : size.height}
         resizeHandles={['e', 's', 'se']}
