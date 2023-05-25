@@ -104,7 +104,7 @@ const FunnelInput: FunctionComponent<Props> = ({ onChange }) => {
 
             {error && (
               <Message className="mt-8" variant="error">
-                {error?.message}
+                {error.message}
               </Message>
             )}
 
