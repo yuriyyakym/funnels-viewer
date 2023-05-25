@@ -3,9 +3,11 @@ import { atomWithStorage } from 'jotai/utils';
 
 import { Size } from 'types';
 
-const viewportSizeAtom = atomWithStorage<Size>('preview-viewport-size', {
-  width: 466,
-  height: 900,
-});
+const IPHONE_SE_VIEWPORT_SIZE: Size = {
+  width: 375,
+  height: 667,
+};
+
+const viewportSizeAtom = atomWithStorage<Size>('preview-viewport-size', IPHONE_SE_VIEWPORT_SIZE);
 
 export const useViewportSizeState = () => useAtom(viewportSizeAtom);
