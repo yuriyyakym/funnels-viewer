@@ -23,4 +23,5 @@ Some ideas can be found in [Issues](https://github.com/yuriyyakym/funnels-viewer
 - Uses [CSS Container Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries) via [tailwindcss-container-queries](https://github.com/tailwindlabs/tailwindcss-container-queries) in order to support responsive blocks media queries without involving an iframe,
 - Lazy-loading images with spinner,
 - Image aspect-ratio prediction in order to reduce CLS,
-- Interactive resizing.
+- Interactive resizing,
+- Viewport config persistence.
