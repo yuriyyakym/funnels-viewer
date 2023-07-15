@@ -1,5 +1,7 @@
 # Funnels Viewer
 
+This repository was created as a part of the recruitment process for https://perspective.co.
+
 The app designed to preview funnels on mobile viewports.
 
 Available at [https://funnels-viewer.vercel.app](https://funnels-viewer.vercel.app/).
